@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bwsnabe7nyoew"]
+
+[ext_resource type="PackedScene" uid="uid://bcr6xsc14cvji" path="res://spark.tscn" id="1_ba0n1"]
+[ext_resource type="Script" uid="uid://bfvkjpcne5p5d" path="res://sparks_placer.gd" id="1_dtgti"]
+
+[node name="SparksPlacer" type="Control" unique_id=1496213151]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_dtgti")
+
+[node name="Spark" parent="." unique_id=2093116023 instance=ExtResource("1_ba0n1")]
+layout_mode = 0

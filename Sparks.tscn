@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bwsnabe7nyoew"]
+
+[ext_resource type="Script" uid="uid://de821pkndnifh" path="res://voronoi.gd" id="1_cacfi"]
+[ext_resource type="Script" uid="uid://bfvkjpcne5p5d" path="res://sparks_spawner.gd" id="1_dtgti"]
+[ext_resource type="Shader" uid="uid://2cq1bblf2oew" path="res://voronoi.gdshader" id="2_cacfi"]
+[ext_resource type="Script" uid="uid://bq5by5kdkktgq" path="res://lines.gd" id="4_2ftfg"]
+
+[sub_resource type="Gradient" id="Gradient_cacfi"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.2, 0.3642857, 0.5285714, 0.66071427, 0.7785714, 0.88928574, 1)
+colors = PackedColorArray(0.43508703, 0.5975438, 0.6662963, 1, 0.9353687, 0.29751658, 0.17270416, 1, 0, 0.572434, 0.87622863, 1, 0, 0.61714923, 0.5741374, 1, 1, 0.5370465, 0.78066534, 1, 0.82966423, 0.6997968, 0.49095464, 1, 0, 0.76, 0.012666655, 1, 0.75830984, 0.38178372, 0.62039125, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cacfi"]
+gradient = SubResource("Gradient_cacfi")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dtgti"]
+shader = ExtResource("2_cacfi")
+shader_parameter/point_positions = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/points = 0
+shader_parameter/indexPalette = SubResource("GradientTexture1D_cacfi")
+
+[node name="Voronoi" type="MarginContainer" unique_id=1164363739]
+custom_minimum_size = Vector2(1280, 720)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cacfi")
+
+[node name="VoronoiVisualization" type="ColorRect" parent="." unique_id=1355567895]
+material = SubResource("ShaderMaterial_dtgti")
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 2
+
+[node name="Sparks" type="Control" parent="." unique_id=1783376253]
+layout_mode = 2
+script = ExtResource("1_dtgti")
+
+[node name="Lines" type="Control" parent="." unique_id=759774337]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("4_2ftfg")
