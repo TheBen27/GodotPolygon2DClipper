@@ -3,7 +3,7 @@ extends Control
 class_name SparksSpawner
 
 @export var maxPoints: int = 256
-@onready var spark_scene: PackedScene = preload("res://spark.tscn")
+@onready var spark_scene: PackedScene = preload("res://spark/spark.tscn")
 
 var active_spark: Spark
 

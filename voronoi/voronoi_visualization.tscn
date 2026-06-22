@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://de821pkndnifh" path="res://voronoi/voronoi.gd" id="1_u33ff"]
 [ext_resource type="Shader" uid="uid://2cq1bblf2oew" path="res://voronoi/voronoi.gdshader" id="2_s5kqx"]
-[ext_resource type="Script" uid="uid://bfvkjpcne5p5d" path="res://spark/sparks_spawner.gd" id="3_mhsmy"]
+[ext_resource type="Script" uid="uid://bfvkjpcne5p5d" path="res://spark/sparks_spawner.gd" id="3_u33ff"]
 [ext_resource type="Script" uid="uid://bq5by5kdkktgq" path="res://voronoi/lines.gd" id="4_u33ff"]
 
 [sub_resource type="Gradient" id="Gradient_cacfi"]
@@ -35,7 +35,7 @@ layout_mode = 2
 
 [node name="Sparks" type="Control" parent="." unique_id=1783376253]
 layout_mode = 2
-script = ExtResource("3_mhsmy")
+script = ExtResource("3_u33ff")
 
 [node name="Lines" type="Control" parent="." unique_id=759774337]
 layout_mode = 2
