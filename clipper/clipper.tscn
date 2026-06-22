@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://6rgw5p6mldu7"]
 
-[ext_resource type="Script" uid="uid://uspeh7qt8ngg" path="res://clipper.gd" id="1_1sp48"]
-[ext_resource type="ButtonGroup" uid="uid://b1ssfei15ve1t" path="res://tool_button_group.tres" id="2_cws4c"]
+[ext_resource type="Script" uid="uid://uspeh7qt8ngg" path="res://clipper/clipper.gd" id="1_1sp48"]
+[ext_resource type="ButtonGroup" uid="uid://b1ssfei15ve1t" path="res://clipper/tool_button_group.tres" id="2_cws4c"]
 [ext_resource type="Texture2D" uid="uid://b5qbwbb5f7noa" path="res://graphics/icon-polygon.svg" id="2_qmuv5"]
 [ext_resource type="Texture2D" uid="uid://baq3b321ujcdq" path="res://graphics/icon-plane.svg" id="3_aouwy"]
 

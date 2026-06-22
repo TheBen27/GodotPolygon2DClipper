@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bcr6xsc14cvji"]
 
-[ext_resource type="Script" uid="uid://df37p40cqtqlo" path="res://spark.gd" id="1_bge2m"]
-[ext_resource type="Shader" uid="uid://d00guehtcxmod" path="res://spark.gdshader" id="2_6bmde"]
+[ext_resource type="Script" uid="uid://df37p40cqtqlo" path="res://spark/spark.gd" id="1_bge2m"]
+[ext_resource type="Shader" uid="uid://d00guehtcxmod" path="res://spark/spark.gdshader" id="2_6bmde"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("2_6bmde")
