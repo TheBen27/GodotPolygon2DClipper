@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5qbwbb5f7noa"
-path="res://.godot/imported/icon-polygon.svg-00bd1e20e92d8e75accc27bd656b947e.ctex"
+path="res://.godot/imported/icon-polygon.svg-85b7b2a009d451e90e62be4811193336.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon-polygon.svg"
-dest_files=["res://.godot/imported/icon-polygon.svg-00bd1e20e92d8e75accc27bd656b947e.ctex"]
+source_file="res://graphics/icon-polygon.svg"
+dest_files=["res://.godot/imported/icon-polygon.svg-85b7b2a009d451e90e62be4811193336.ctex"]
 
 [params]
 
