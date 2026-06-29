@@ -2,6 +2,9 @@ extends CenterContainer
 
 class_name Spark
 
+@export var can_drag: bool = true
+@export var can_delete: bool = true
+
 var is_dragging: bool = false
 var drag_mouse_offset: Vector2 = Vector2(0.0, 0.0)
 
@@ -12,7 +15,7 @@ func _process(_delta: float) -> void:
 		global_position = get_global_mouse_position() + drag_mouse_offset
 
 func _gui_input(event: InputEvent) -> void:
-	if event.is_action_pressed("RemoveSpark"):
+	if can_delete and event.is_action_pressed("RemoveSpark"):
 		queue_free()
 	
 	if is_dragging and event.is_action_released("PlaceOrMoveSpark"):
@@ -21,7 +24,7 @@ func _gui_input(event: InputEvent) -> void:
 			return
 
 	# Grab
-	if event.is_action_pressed("PlaceOrMoveSpark"):
+	if can_drag and event.is_action_pressed("PlaceOrMoveSpark"):
 		clicked.emit(self)
 		is_dragging = true
 		drag_mouse_offset = global_position - get_global_mouse_position()

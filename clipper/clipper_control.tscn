@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://copxhp53igrl4"]
+
+[ext_resource type="Script" uid="uid://pryqbmmh4p0w" path="res://clipper/clipper_control.gd" id="1_ogeak"]
+[ext_resource type="ButtonGroup" uid="uid://b1ssfei15ve1t" path="res://clipper/tool_button_group.tres" id="2_csy42"]
+[ext_resource type="Texture2D" uid="uid://b5qbwbb5f7noa" path="res://graphics/icon-polygon.svg" id="3_1irsi"]
+[ext_resource type="Texture2D" uid="uid://baq3b321ujcdq" path="res://graphics/icon-plane.svg" id="4_iyqvw"]
+
+[node name="ClipperControl" type="MarginContainer" unique_id=1599900967]
+custom_minimum_size = Vector2(256, -1)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_ogeak")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=66070363]
+layout_mode = 2
+
+[node name="ToolSelector" type="MarginContainer" parent="VBoxContainer" unique_id=599075538]
+layout_mode = 2
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ToolSelector" unique_id=200391661]
+layout_mode = 2
+
+[node name="PolygonToggle" type="Button" parent="VBoxContainer/ToolSelector/HBoxContainer" unique_id=673675683]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("2_csy42")
+icon = ExtResource("3_1irsi")
+expand_icon = true
+
+[node name="PlaneToggle" type="Button" parent="VBoxContainer/ToolSelector/HBoxContainer" unique_id=1612509475]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("2_csy42")
+icon = ExtResource("4_iyqvw")
+expand_icon = true
+
+[node name="PolygonToolbar" type="PanelContainer" parent="VBoxContainer" unique_id=482269262]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PolygonToolbar" unique_id=1162772793]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PolygonToolbar/MarginContainer" unique_id=376794133]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PolygonToolbar/MarginContainer/VBoxContainer" unique_id=914323135]
+layout_mode = 2
+text = "Polygon Settings"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PolygonToolbar/MarginContainer/VBoxContainer" unique_id=647474532]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PolygonToolbar/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1139100517]
+layout_mode = 2
+text = "Points"
+
+[node name="PointsCountSpinbox" type="SpinBox" parent="VBoxContainer/PolygonToolbar/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1620680370]
+layout_mode = 2
+size_flags_horizontal = 10
+min_value = 3.0
+max_value = 40.0
+value = 5.0
+rounded = true
+
+[node name="ResetPointsButton" type="Button" parent="VBoxContainer/PolygonToolbar/MarginContainer/VBoxContainer" unique_id=1140669305]
+layout_mode = 2
+text = "Reset"
+
+[node name="PlaneToolbar" type="PanelContainer" parent="VBoxContainer" unique_id=1849264092]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PlaneToolbar" unique_id=522424184]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PlaneToolbar/MarginContainer" unique_id=547566889]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PlaneToolbar/MarginContainer/VBoxContainer" unique_id=1584244186]
+layout_mode = 2
+text = "Plane Settings"
+horizontal_alignment = 1
+
+[node name="ClearPlanesButton" type="Button" parent="VBoxContainer/PlaneToolbar/MarginContainer/VBoxContainer" unique_id=798602993]
+layout_mode = 2
+text = "Clear"

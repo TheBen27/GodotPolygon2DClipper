@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ch7morlatilra"]
+
+[ext_resource type="Script" uid="uid://df37p40cqtqlo" path="res://spark/spark.gd" id="1_dxhoo"]
+[ext_resource type="Shader" uid="uid://d00guehtcxmod" path="res://spark/circle.gdshader" id="2_olhi0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_28tvb"]
+shader = ExtResource("2_olhi0")
+
+[node name="ClipperPoint" type="CenterContainer" unique_id=1445840667]
+custom_minimum_size = Vector2(32, 32)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dxhoo")
+can_delete = false
+metadata/_custom_type_script = "uid://df37p40cqtqlo"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=999426498]
+material = SubResource("ShaderMaterial_28tvb")
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_filter = 2

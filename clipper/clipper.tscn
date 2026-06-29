@@ -1,60 +1,20 @@
 [gd_scene format=3 uid="uid://6rgw5p6mldu7"]
 
 [ext_resource type="Script" uid="uid://uspeh7qt8ngg" path="res://clipper/clipper.gd" id="1_1sp48"]
-[ext_resource type="ButtonGroup" uid="uid://b1ssfei15ve1t" path="res://clipper/tool_button_group.tres" id="2_cws4c"]
-[ext_resource type="Texture2D" uid="uid://b5qbwbb5f7noa" path="res://graphics/icon-polygon.svg" id="2_qmuv5"]
-[ext_resource type="Texture2D" uid="uid://baq3b321ujcdq" path="res://graphics/icon-plane.svg" id="3_aouwy"]
+[ext_resource type="Script" uid="uid://c2ap221073iy1" path="res://clipper/polygon_points.gd" id="2_28tvb"]
+[ext_resource type="PackedScene" uid="uid://copxhp53igrl4" path="res://clipper/clipper_control.tscn" id="2_ccuao"]
 
 [node name="Clipper" type="Node2D" unique_id=1454333111]
 script = ExtResource("1_1sp48")
-
-[node name="ClipperVisual" type="Polygon2D" parent="." unique_id=69390452]
 
 [node name="PolygonPoints" type="Control" parent="." unique_id=1604170107]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("2_28tvb")
 
-[node name="Planes" type="Control" parent="." unique_id=2106163096]
-custom_minimum_size = Vector2(1280, 720)
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="ClipperControl" parent="." unique_id=1599900967 instance=ExtResource("2_ccuao")]
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=310738534]
-custom_minimum_size = Vector2(256, -1)
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1415432006]
-layout_mode = 2
-
-[node name="ToolSelector" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=2135251719]
-layout_mode = 2
-theme_override_constants/margin_bottom = 8
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ToolSelector" unique_id=1946992225]
-layout_mode = 2
-
-[node name="PolygonToggle" type="Button" parent="MarginContainer/VBoxContainer/ToolSelector/HBoxContainer" unique_id=1910489826]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-toggle_mode = true
-button_pressed = true
-button_group = ExtResource("2_cws4c")
-icon = ExtResource("2_qmuv5")
-expand_icon = true
-
-[node name="PlaneToggle" type="Button" parent="MarginContainer/VBoxContainer/ToolSelector/HBoxContainer" unique_id=1258037803]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-toggle_mode = true
-button_group = ExtResource("2_cws4c")
-icon = ExtResource("3_aouwy")
-expand_icon = true
+[connection signal="changePointCount" from="ClipperControl" to="PolygonPoints" method="set_point_count"]
+[connection signal="resetPointPositions" from="ClipperControl" to="PolygonPoints" method="reset_point_positions"]

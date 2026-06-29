@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Shatter"
-run/main_scene="uid://bwsnabe7nyoew"
+run/main_scene="uid://6rgw5p6mldu7"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://graphics/icon.svg"
 
