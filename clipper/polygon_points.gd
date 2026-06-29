@@ -15,6 +15,8 @@ func set_point_count(points: int) -> void:
 	
 	reset_point_positions()
 
+const point_offset = Vector2(16.0, 16.0) # this is nasty
+
 func reset_point_positions() -> void:
 	var active_children = []
 	for child in get_children():
@@ -25,12 +27,13 @@ func reset_point_positions() -> void:
 	for i in range(len(active_children)):
 		var angle = 2 * PI * (float(i) / float(len(active_children)))
 		var p = screen_center + Vector2(default_radius * cos(angle), default_radius * sin(angle))
+		p -= point_offset
 		active_children[i].position = p
 
 func get_point_positions() -> PackedVector2Array:
 	var positions = PackedVector2Array()
 	for child in get_children():
 		if not child.is_queued_for_deletion():
-			positions.append(child.position)
+			positions.append(child.position + point_offset)
 	
 	return positions
