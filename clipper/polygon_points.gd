@@ -26,3 +26,11 @@ func reset_point_positions() -> void:
 		var angle = 2 * PI * (float(i) / float(len(active_children)))
 		var p = screen_center + Vector2(default_radius * cos(angle), default_radius * sin(angle))
 		active_children[i].position = p
+
+func get_point_positions() -> PackedVector2Array:
+	var positions = PackedVector2Array()
+	for child in get_children():
+		if not child.is_queued_for_deletion():
+			positions.append(child.position)
+	
+	return positions

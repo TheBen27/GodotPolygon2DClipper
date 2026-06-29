@@ -16,5 +16,8 @@ script = ExtResource("2_28tvb")
 
 [node name="ClipperControl" parent="." unique_id=1599900967 instance=ExtResource("2_ccuao")]
 
+[node name="PolygonLines" type="Polygon2D" parent="." unique_id=759843726]
+color = Color(1, 1, 1, 0.21568628)
+
 [connection signal="changePointCount" from="ClipperControl" to="PolygonPoints" method="set_point_count"]
 [connection signal="resetPointPositions" from="ClipperControl" to="PolygonPoints" method="reset_point_positions"]
