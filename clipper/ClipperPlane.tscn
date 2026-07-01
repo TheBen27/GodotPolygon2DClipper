@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://f38tda6jtmks"]
 
+[ext_resource type="Script" uid="uid://dhiq0stu74ls0" path="res://clipper/clipper_plane.gd" id="1_0elnq"]
 [ext_resource type="Texture2D" uid="uid://b5iq0rhjopof4" path="res://graphics/icon-arrow.svg" id="1_8ergf"]
 [ext_resource type="Texture2D" uid="uid://c22vwomdqayop" path="res://graphics/icon-dotted.svg" id="2_y18hb"]
 
 [node name="ClipperPlane" type="VBoxContainer" unique_id=1997139471]
 offset_right = 2000.0
-offset_bottom = 61.0
+offset_bottom = 89.0
 pivot_offset = Vector2(0, 75.87)
 pivot_offset_ratio = Vector2(0.5, 0)
 theme_override_constants/separation = 16
+script = ExtResource("1_0elnq")
 
 [node name="DirectionArrow" type="TextureRect" parent="." unique_id=513543062]
 layout_mode = 2
@@ -17,9 +19,16 @@ size_flags_vertical = 4
 mouse_default_cursor_shape = 10
 texture = ExtResource("1_8ergf")
 
-[node name="Line" type="TextureRect" parent="." unique_id=739872047]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1899028085]
+layout_mode = 2
+
+[node name="Line" type="TextureRect" parent="CenterContainer" unique_id=739872047]
 texture_repeat = 2
+custom_minimum_size = Vector2(2000, 0)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 texture = ExtResource("2_y18hb")
 stretch_mode = 1
+
+[node name="PivotPoint" type="Control" parent="CenterContainer" unique_id=1355358772]
+layout_mode = 2
