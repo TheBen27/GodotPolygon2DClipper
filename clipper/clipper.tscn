@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://uspeh7qt8ngg" path="res://clipper/clipper.gd" id="1_1sp48"]
 [ext_resource type="Script" uid="uid://c2ap221073iy1" path="res://clipper/polygon_points.gd" id="2_28tvb"]
 [ext_resource type="PackedScene" uid="uid://copxhp53igrl4" path="res://clipper/clipper_control.tscn" id="2_ccuao"]
+[ext_resource type="Script" uid="uid://c0gpb1b7bcs5o" path="res://clipper/polygon_planes.gd" id="3_kf7g0"]
 
 [node name="Clipper" type="Node2D" unique_id=1454333111]
 script = ExtResource("1_1sp48")
@@ -14,10 +15,31 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_28tvb")
 
-[node name="ClipperControl" parent="." unique_id=1599900967 instance=ExtResource("2_ccuao")]
+[node name="PolygonPlanes" type="Control" parent="." unique_id=1388558164]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_kf7g0")
 
-[node name="PolygonLines" type="Polygon2D" parent="." unique_id=759843726]
+[node name="ClipperControl" parent="." unique_id=1599900967 instance=ExtResource("2_ccuao")]
+offset_right = 256.0
+offset_bottom = 263.0
+
+[node name="PolygonFill" type="Polygon2D" parent="." unique_id=759843726]
 color = Color(1, 1, 1, 0.21568628)
 
+[node name="PolygonLines" type="Line2D" parent="." unique_id=385248719]
+points = PackedVector2Array(-456, 195)
+closed = true
+joint_mode = 2
+
+[connection signal="activeToolChanged" from="ClipperControl" to="PolygonPlanes" method="_on_active_tool_changed"]
 [connection signal="changePointCount" from="ClipperControl" to="PolygonPoints" method="set_point_count"]
 [connection signal="resetPointPositions" from="ClipperControl" to="PolygonPoints" method="reset_point_positions"]

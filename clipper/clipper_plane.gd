@@ -15,15 +15,17 @@ func _ready() -> void:
 	arrow.gui_input.connect(arrow_gui_input)
 	line.gui_input.connect(line_gui_input)
 
-func _gui_input(event: InputEvent) -> void:
-	if event.is_action_released("PlaceOrMoveSpark"):
+func set_position_centered(position: Vector2) -> void:
+	global_position = position - (pivot_offset + pivot_offset_ratio * size)
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_released("PlaceOrMoveSpark"):
 		state = State.Idle
-	elif event is InputEventMouseMotion:
-		if state == State.Moving:
-			global_position = event.global_position - drag_offset
-		elif state == State.Rotating:
-			var direction = (event.global_position - rotationPivot.global_position).normalized()
-			rotation = atan2(direction.y, direction.x) + PI / 2
+	elif state == State.Moving:
+		global_position = get_viewport().get_mouse_position() - drag_offset
+	elif state == State.Rotating:
+		var direction = (get_viewport().get_mouse_position() - rotationPivot.global_position).normalized()
+		rotation = atan2(direction.y, direction.x) + PI / 2
 
 func arrow_gui_input(input: InputEvent) -> void:
 	if input.is_action_pressed("PlaceOrMoveSpark"):	
