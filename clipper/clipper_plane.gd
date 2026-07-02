@@ -30,8 +30,10 @@ func _process(delta: float) -> void:
 func arrow_gui_input(input: InputEvent) -> void:
 	if input.is_action_pressed("PlaceOrMoveSpark"):	
 		state = State.Rotating
+		arrow.accept_event()
 
 func line_gui_input(input: InputEvent) -> void:
 	if input.is_action_pressed("PlaceOrMoveSpark"):	
 		state = State.Moving
 		drag_offset = input.global_position - global_position
+		line.accept_event()

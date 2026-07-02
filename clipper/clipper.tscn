@@ -41,6 +41,7 @@ points = PackedVector2Array(-456, 195)
 closed = true
 joint_mode = 2
 
+[connection signal="activeToolChanged" from="ClipperControl" to="PolygonPoints" method="_on_active_tool_changed"]
 [connection signal="activeToolChanged" from="ClipperControl" to="PolygonPlanes" method="_on_active_tool_changed"]
 [connection signal="changePointCount" from="ClipperControl" to="PolygonPoints" method="set_point_count"]
 [connection signal="resetPointPositions" from="ClipperControl" to="PolygonPoints" method="reset_point_positions"]

@@ -37,3 +37,12 @@ func get_point_positions() -> PackedVector2Array:
 			positions.append(child.position + point_offset)
 	
 	return positions
+
+
+func _on_active_tool_changed(tool: ClipperControl.Tool) -> void:
+	if tool == ClipperControl.Tool.Polygon:
+		mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_INHERITED
+		mouse_filter = Control.MOUSE_FILTER_PASS
+	else:
+		mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED
+		mouse_filter = Control.MOUSE_FILTER_IGNORE
