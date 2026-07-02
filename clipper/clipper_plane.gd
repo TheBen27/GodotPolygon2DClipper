@@ -15,6 +15,13 @@ func _ready() -> void:
 	arrow.gui_input.connect(arrow_gui_input)
 	line.gui_input.connect(line_gui_input)
 
+# {"position": Vector2, "normal" Vector2}
+func get_info() -> Dictionary:
+	return {
+		"position": rotationPivot.global_position,
+		"normal": Vector2.UP.rotated(rotation)
+	}
+
 func set_position_centered(position: Vector2) -> void:
 	global_position = position - (pivot_offset + pivot_offset_ratio * size)
 
