@@ -38,7 +38,6 @@ func get_point_positions() -> PackedVector2Array:
 	
 	return positions
 
-
 func _on_active_tool_changed(tool: ClipperControl.Tool) -> void:
 	if tool == ClipperControl.Tool.Polygon:
 		mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_INHERITED

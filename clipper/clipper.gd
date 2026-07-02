@@ -10,6 +10,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var positions = points.get_point_positions()
+	# TODO apply plane clipping
 	fill.polygon = positions
 	stroke.clear_points()
 	for point in positions:
