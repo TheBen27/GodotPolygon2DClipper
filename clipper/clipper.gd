@@ -81,7 +81,8 @@ func clip_plane(points: PackedVector2Array, plane_position: Vector2, plane_norma
 	var index = 0
 	while index < len(points):
 		if not inside[index] and not inside[neighbor.call(index, -1)] and not inside[neighbor.call(index, 1)]:
-			PolygonOps.dissolve_point(points, index)
+			points.remove_at(index)
+			inside.remove_at(index)
 			# the point at index is now the next point, so don't increment the index
 		else:
 			index += 1
@@ -100,13 +101,14 @@ func clip_plane(points: PackedVector2Array, plane_position: Vector2, plane_norma
 	inside.clear()
 	for point in points:
 		inside.append(side_of_plane.call(point))
+	
 	for i in range(len(points)):
 		if inside[i]:
 			continue
 		var previous_inside = inside[neighbor.call(i, -1)]
 		var next_inside = inside[neighbor.call(i, 1)]
 		if previous_inside and next_inside:
-			PolygonOps.duplicate_point(points, i)
+			points.insert(i, points[i])
 	
 	if control.activeStage == ClipperControl.Stage.Pass2:
 		return
@@ -129,4 +131,5 @@ func clip_plane(points: PackedVector2Array, plane_position: Vector2, plane_norma
 			continue
 		var direction = PolygonOps.Direction.Back if previous_inside else PolygonOps.Direction.Forward
 		PolygonOps.slide_point(points, i, direction, plane_position, plane_normal)
+
 		
