@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 	for point in positions:
 		stroke.add_point(point)
 
+
 func clip_plane(points: PackedVector2Array, plane_position: Vector2, plane_normal: Vector2) -> void:
 	# Clipping points with a plane happens in three passes and is done on a point-by-point basis.
 	# Each pass iterates over every point and does an operation on points that match a certain
@@ -63,6 +64,9 @@ func clip_plane(points: PackedVector2Array, plane_position: Vector2, plane_norma
 	if len(points) < 3:
 		return
 	
+	if control.activeStage == ClipperControl.Stage.Input:
+		return
+	
 	var side_of_plane = func (p: Vector2):
 		return (p - plane_position).dot(plane_normal) > 0.0
 
@@ -88,6 +92,9 @@ func clip_plane(points: PackedVector2Array, plane_position: Vector2, plane_norma
 	if len(points) == 0:
 		return
 	
+	if control.activeStage == ClipperControl.Stage.Pass1:
+		return
+	
 	# Pass 2: duplicate points
 	# TODO this can probably be done more intelligently
 	inside.clear()
@@ -100,6 +107,9 @@ func clip_plane(points: PackedVector2Array, plane_position: Vector2, plane_norma
 		var next_inside = inside[neighbor.call(i, 1)]
 		if previous_inside and next_inside:
 			PolygonOps.duplicate_point(points, i)
+	
+	if control.activeStage == ClipperControl.Stage.Pass2:
+		return
 	
 	# Pass 3: slide points along edges
 	# TODO this can probably be done more intelligently
@@ -120,4 +130,3 @@ func clip_plane(points: PackedVector2Array, plane_position: Vector2, plane_norma
 		var direction = PolygonOps.Direction.Back if previous_inside else PolygonOps.Direction.Forward
 		PolygonOps.slide_point(points, i, direction, plane_position, plane_normal)
 		
-	

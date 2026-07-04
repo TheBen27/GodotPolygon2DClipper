@@ -7,6 +7,7 @@ class_name ClipperControl
 @onready var pointsCountSpinbox: SpinBox = $VBoxContainer/SettingsToolbar/MarginContainer/VBoxContainer/HBoxContainer/PointsCountSpinbox
 @onready var resetPointsButton: Button = $VBoxContainer/SettingsToolbar/MarginContainer/VBoxContainer/ResetPointsButton
 @onready var clearPlanesButton: Button = $VBoxContainer/SettingsToolbar/MarginContainer/VBoxContainer/ClearPlanesButton
+@onready var stageOptions: OptionButton = $VBoxContainer/SettingsToolbar/MarginContainer/VBoxContainer/StageContainer/StageOptions
 
 signal activeToolChanged
 signal clearPlanes
@@ -17,6 +18,16 @@ enum Tool {
 	Polygon,
 	Plane
 }
+
+enum Stage {
+	Input,
+	Pass1,
+	Pass2,
+	Output
+}
+
+var activeStage: Stage = Stage.Output
+
 var activeTool: Tool:
 	get:
 		return activeTool
@@ -32,9 +43,14 @@ func _ready() -> void:
 	clearPlanesButton.pressed.connect(clearPlanes.emit)
 	activeTool = Tool.Polygon
 	changePointCount.emit(pointsCountSpinbox.value)
+	stageOptions.item_selected.connect(stageOptionItemSelected)
 
 func polygonButtonPressed() -> void:
 	activeTool = Tool.Polygon
 
 func planeButtonPressed() -> void:
 	activeTool = Tool.Plane
+
+func stageOptionItemSelected(index: int) -> void:
+	activeStage = index
+	

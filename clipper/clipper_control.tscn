@@ -75,6 +75,28 @@ max_value = 40.0
 value = 5.0
 rounded = true
 
+[node name="StageContainer" type="HBoxContainer" parent="VBoxContainer/SettingsToolbar/MarginContainer/VBoxContainer" unique_id=587825561]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="VBoxContainer/SettingsToolbar/MarginContainer/VBoxContainer/StageContainer" unique_id=516484807]
+layout_mode = 2
+text = "Stage"
+
+[node name="StageOptions" type="OptionButton" parent="VBoxContainer/SettingsToolbar/MarginContainer/VBoxContainer/StageContainer" unique_id=495359535]
+layout_mode = 2
+size_flags_horizontal = 10
+selected = 3
+item_count = 4
+popup/item_0/text = "Raw Input"
+popup/item_0/id = 0
+popup/item_1/text = "Pass 1 (Dissolve)"
+popup/item_1/id = 1
+popup/item_2/text = "Pass 2 (Duplicate)"
+popup/item_2/id = 2
+popup/item_3/text = "Final Output"
+popup/item_3/id = 3
+
 [node name="ResetPointsButton" type="Button" parent="VBoxContainer/SettingsToolbar/MarginContainer/VBoxContainer" unique_id=1140669305]
 layout_mode = 2
 text = "Reset Point Positions"
