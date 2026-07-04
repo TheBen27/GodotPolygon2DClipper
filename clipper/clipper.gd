@@ -49,6 +49,9 @@ func clip_plane(points: PackedVector2Array, plane_position: Vector2, plane_norma
 	#     keep side so that it is on the plane's dividing line.
 	#   Run: once for each point
 	#
+	# Rationale: This works pretty well when I do it in Blender. I should probably figure out
+	# if it really works or not, though.
+	# 
 	# Edge case: it's possible that the entire polygon is on the plane's cut side, in which case
 	# this should return an empty array.
 	#
@@ -64,7 +67,7 @@ func clip_plane(points: PackedVector2Array, plane_position: Vector2, plane_norma
 	var neighbor = func (index: int, offset: int):
 		return int(fposmod(index + offset, len(points)))
 
-	# pass 1: dissolve
+	# Pass 1: dissolve points
 	var inside: Array[bool] = []
 	for point in points:
 		inside.append(side_of_plane.call(point))
@@ -83,4 +86,36 @@ func clip_plane(points: PackedVector2Array, plane_position: Vector2, plane_norma
 	if len(points) == 0:
 		return
 	
+	# Pass 2: duplicate points
+	# TODO this can probably be done more intelligently
+	inside.clear()
+	for point in points:
+		inside.append(side_of_plane.call(point))
+	for i in range(len(points)):
+		if inside[i]:
+			continue
+		var previous_inside = inside[neighbor.call(i, -1)]
+		var next_inside = inside[neighbor.call(i, 1)]
+		if previous_inside and next_inside:
+			PolygonOps.duplicate_point(points, i)
+	
+	# Pass 3: slide points along edges
+	# TODO this can probably be done more intelligently
+	inside.clear()
+	for point in points:
+		inside.append(side_of_plane.call(point))
+	
+	# TODO maybe move parts of this out so I don't have to make this be "i" just because "index"
+	# was used earlier
+	for i in range(len(points)):
+		if inside[i]:
+			continue
+		var previous_inside = inside[neighbor.call(i, -1)]
+		var next_inside = inside[neighbor.call(i, 1)]
+		# not xor
+		if (previous_inside and next_inside) or (not previous_inside and not next_inside):
+			continue
+		var direction = PolygonOps.Direction.Back if previous_inside else PolygonOps.Direction.Forward
+		PolygonOps.slide_point(points, i, direction, plane_position, plane_normal)
+		
 	
