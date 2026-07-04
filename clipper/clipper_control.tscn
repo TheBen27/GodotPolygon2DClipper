@@ -42,32 +42,32 @@ button_group = ExtResource("2_csy42")
 icon = ExtResource("4_iyqvw")
 expand_icon = true
 
-[node name="PolygonToolbar" type="PanelContainer" parent="VBoxContainer" unique_id=482269262]
+[node name="SettingsToolbar" type="PanelContainer" parent="VBoxContainer" unique_id=482269262]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PolygonToolbar" unique_id=1162772793]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/SettingsToolbar" unique_id=1162772793]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PolygonToolbar/MarginContainer" unique_id=376794133]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/SettingsToolbar/MarginContainer" unique_id=376794133]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/PolygonToolbar/MarginContainer/VBoxContainer" unique_id=914323135]
+[node name="Label" type="Label" parent="VBoxContainer/SettingsToolbar/MarginContainer/VBoxContainer" unique_id=914323135]
 layout_mode = 2
-text = "Polygon Settings"
+text = "Settings"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PolygonToolbar/MarginContainer/VBoxContainer" unique_id=647474532]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/SettingsToolbar/MarginContainer/VBoxContainer" unique_id=647474532]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/PolygonToolbar/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1139100517]
+[node name="Label" type="Label" parent="VBoxContainer/SettingsToolbar/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1139100517]
 layout_mode = 2
 text = "Points"
 
-[node name="PointsCountSpinbox" type="SpinBox" parent="VBoxContainer/PolygonToolbar/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1620680370]
+[node name="PointsCountSpinbox" type="SpinBox" parent="VBoxContainer/SettingsToolbar/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1620680370]
 layout_mode = 2
 size_flags_horizontal = 10
 min_value = 3.0
@@ -75,28 +75,10 @@ max_value = 40.0
 value = 5.0
 rounded = true
 
-[node name="ResetPointsButton" type="Button" parent="VBoxContainer/PolygonToolbar/MarginContainer/VBoxContainer" unique_id=1140669305]
+[node name="ResetPointsButton" type="Button" parent="VBoxContainer/SettingsToolbar/MarginContainer/VBoxContainer" unique_id=1140669305]
 layout_mode = 2
-text = "Reset"
+text = "Reset Point Positions"
 
-[node name="PlaneToolbar" type="PanelContainer" parent="VBoxContainer" unique_id=1849264092]
+[node name="ClearPlanesButton" type="Button" parent="VBoxContainer/SettingsToolbar/MarginContainer/VBoxContainer" unique_id=798602993]
 layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PlaneToolbar" unique_id=522424184]
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PlaneToolbar/MarginContainer" unique_id=547566889]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/PlaneToolbar/MarginContainer/VBoxContainer" unique_id=1584244186]
-layout_mode = 2
-text = "Plane Settings"
-horizontal_alignment = 1
-
-[node name="ClearPlanesButton" type="Button" parent="VBoxContainer/PlaneToolbar/MarginContainer/VBoxContainer" unique_id=798602993]
-layout_mode = 2
-text = "Clear"
+text = "Clear Planes"

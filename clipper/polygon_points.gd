@@ -11,9 +11,7 @@ func set_point_count(points: int) -> void:
 		child.queue_free()
 	
 	for i in range(points):
-		var child = spark.instantiate()
-		child.set_index(i)
-		add_child(child)
+		add_child(spark.instantiate())
 	
 	reset_point_positions()
 

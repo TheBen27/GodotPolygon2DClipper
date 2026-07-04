@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c2ap221073iy1" path="res://clipper/polygon_points.gd" id="2_28tvb"]
 [ext_resource type="PackedScene" uid="uid://copxhp53igrl4" path="res://clipper/clipper_control.tscn" id="2_ccuao"]
 [ext_resource type="Script" uid="uid://c0gpb1b7bcs5o" path="res://clipper/polygon_planes.gd" id="3_kf7g0"]
+[ext_resource type="Script" uid="uid://yacpan35so1o" path="res://clipper/polygon_points_display.gd" id="5_1b60b"]
 
 [node name="Clipper" type="Node2D" unique_id=1454333111]
 script = ExtResource("1_1sp48")
@@ -37,11 +38,20 @@ offset_bottom = 40.0
 mouse_filter = 2
 script = ExtResource("2_28tvb")
 
+[node name="PolygonPointsDisplay" type="Control" parent="." unique_id=145402535]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+script = ExtResource("5_1b60b")
+
 [node name="ClipperControl" parent="." unique_id=1599900967 instance=ExtResource("2_ccuao")]
 offset_right = 256.0
 offset_bottom = 263.0
 
-[connection signal="activeToolChanged" from="ClipperControl" to="PolygonPoints" method="_on_active_tool_changed"]
 [connection signal="activeToolChanged" from="ClipperControl" to="PolygonPlanes" method="_on_active_tool_changed"]
+[connection signal="activeToolChanged" from="ClipperControl" to="PolygonPoints" method="_on_active_tool_changed"]
 [connection signal="changePointCount" from="ClipperControl" to="PolygonPoints" method="set_point_count"]
 [connection signal="resetPointPositions" from="ClipperControl" to="PolygonPoints" method="reset_point_positions"]

@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var points: PolygonPoints = $PolygonPoints
+@onready var pointsDisplay: PolygonPointsDisplay = $PolygonPointsDisplay
 @onready var planes: PolygonPlanes = $PolygonPlanes
 @onready var control: ClipperControl = $ClipperControl
 @onready var fill: Polygon2D = $PolygonFill
@@ -12,6 +13,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var positions = points.get_point_positions()
 	var plane_info = planes.get_planes()
+	pointsDisplay.set_points(positions)
 	for plane in plane_info:
 		clip_plane(positions, plane["position"], plane["normal"])
 	fill.polygon = positions

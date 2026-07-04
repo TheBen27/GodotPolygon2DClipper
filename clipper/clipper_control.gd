@@ -4,11 +4,9 @@ class_name ClipperControl
 
 @onready var polygonButton: Button = $VBoxContainer/ToolSelector/HBoxContainer/PolygonToggle
 @onready var planeButton: Button = $VBoxContainer/ToolSelector/HBoxContainer/PlaneToggle
-@onready var pointsCountSpinbox: SpinBox = $VBoxContainer/PolygonToolbar/MarginContainer/VBoxContainer/HBoxContainer/PointsCountSpinbox
-@onready var resetPointsButton: Button = $VBoxContainer/PolygonToolbar/MarginContainer/VBoxContainer/ResetPointsButton
-@onready var clearPlanesButton: Button = $VBoxContainer/PlaneToolbar/MarginContainer/VBoxContainer/ClearPlanesButton
-@onready var polygonToolbar: Container = $VBoxContainer/PolygonToolbar
-@onready var planeToolbar: Container = $VBoxContainer/PlaneToolbar
+@onready var pointsCountSpinbox: SpinBox = $VBoxContainer/SettingsToolbar/MarginContainer/VBoxContainer/HBoxContainer/PointsCountSpinbox
+@onready var resetPointsButton: Button = $VBoxContainer/SettingsToolbar/MarginContainer/VBoxContainer/ResetPointsButton
+@onready var clearPlanesButton: Button = $VBoxContainer/SettingsToolbar/MarginContainer/VBoxContainer/ClearPlanesButton
 
 signal activeToolChanged
 signal clearPlanes
