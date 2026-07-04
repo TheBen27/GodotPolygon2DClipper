@@ -30,3 +30,8 @@ func get_planes() -> Array[Dictionary]:
 		if not child.is_queued_for_deletion():
 			output.append((child as ClipperPlane).get_info())
 	return output
+
+
+func _on_clear_planes() -> void:
+	for child in get_children():
+		child.queue_free()

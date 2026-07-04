@@ -38,9 +38,13 @@ func arrow_gui_input(input: InputEvent) -> void:
 	if input.is_action_pressed("PlaceOrMoveSpark"):	
 		state = State.Rotating
 		arrow.accept_event()
+	elif input.is_action_pressed("RemoveSpark"):
+		queue_free()
 
 func line_gui_input(input: InputEvent) -> void:
 	if input.is_action_pressed("PlaceOrMoveSpark"):	
 		state = State.Moving
 		drag_offset = input.global_position - global_position
 		line.accept_event()
+	elif input.is_action_pressed("RemoveSpark"):
+		queue_free()
