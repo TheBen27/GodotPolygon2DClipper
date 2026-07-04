@@ -109,6 +109,7 @@ func clip_plane(points: PackedVector2Array, plane_position: Vector2, plane_norma
 		var next_inside = inside[neighbor.call(i, 1)]
 		if previous_inside and next_inside:
 			points.insert(i, points[i])
+			inside.insert(i, inside[i])
 	
 	if control.activeStage == ClipperControl.Stage.Pass2:
 		return
