@@ -102,14 +102,20 @@ func clip_plane(points: PackedVector2Array, plane_position: Vector2, plane_norma
 	for point in points:
 		inside.append(side_of_plane.call(point))
 	
-	for i in range(len(points)):
-		if inside[i]:
+	# we need to use a while loop because the size of the container can change
+	# if there are multiple points falling under pass 2
+	index = 0
+	while index < len(points):
+		if inside[index]:
+			index += 1
 			continue
-		var previous_inside = inside[neighbor.call(i, -1)]
-		var next_inside = inside[neighbor.call(i, 1)]
+		var previous_inside = inside[neighbor.call(index, -1)]
+		var next_inside = inside[neighbor.call(index, 1)]
 		if previous_inside and next_inside:
-			points.insert(i, points[i])
-			inside.insert(i, inside[i])
+			points.insert(index, points[index])
+			inside.insert(index, false)
+		
+		index += 1
 	
 	if control.activeStage == ClipperControl.Stage.Pass2:
 		return

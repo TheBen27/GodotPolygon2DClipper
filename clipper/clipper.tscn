@@ -54,4 +54,5 @@ offset_bottom = 263.0
 [connection signal="activeToolChanged" from="ClipperControl" to="PolygonPlanes" method="_on_active_tool_changed"]
 [connection signal="activeToolChanged" from="ClipperControl" to="PolygonPoints" method="_on_active_tool_changed"]
 [connection signal="changePointCount" from="ClipperControl" to="PolygonPoints" method="set_point_count"]
+[connection signal="clearPlanes" from="ClipperControl" to="PolygonPlanes" method="_on_clear_planes"]
 [connection signal="resetPointPositions" from="ClipperControl" to="PolygonPoints" method="reset_point_positions"]
