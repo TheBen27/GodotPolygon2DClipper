@@ -22,6 +22,10 @@ func _gui_input(event: InputEvent) -> void:
 func on_point_added(point: Control) -> void:
 	pass
 
+func clear_points() -> void:
+	for child in get_children():
+		child.queue_free()
+
 func get_point_positions() -> PackedVector2Array:
 	var positions = PackedVector2Array()
 	positions.resize(get_child_count())

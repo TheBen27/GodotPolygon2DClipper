@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://2cq1bblf2oew" path="res://voronoi/voronoi.gdshader" id="2_s5kqx"]
 [ext_resource type="Script" uid="uid://bfvkjpcne5p5d" path="res://voronoi/sparks_spawner.gd" id="3_u33ff"]
 [ext_resource type="Script" uid="uid://bq5by5kdkktgq" path="res://voronoi/lines.gd" id="4_u33ff"]
+[ext_resource type="PackedScene" uid="uid://dc5o2ltn4hcrv" path="res://voronoi/voronoi_controls.tscn" id="5_s5kqx"]
 
 [sub_resource type="Gradient" id="Gradient_cacfi"]
 interpolation_color_space = 2
@@ -41,3 +42,8 @@ script = ExtResource("3_u33ff")
 layout_mode = 2
 mouse_filter = 2
 script = ExtResource("4_u33ff")
+
+[node name="VoronoiControls" parent="." unique_id=1319903057 instance=ExtResource("5_s5kqx")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0

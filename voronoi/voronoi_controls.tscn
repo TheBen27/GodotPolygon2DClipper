@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dc5o2ltn4hcrv"]
+
+[ext_resource type="Script" uid="uid://bky3gss1nu4cx" path="res://voronoi_controls.gd" id="1_2rm8g"]
+
+[node name="VoronoiControls" type="PanelContainer" unique_id=1319903057]
+custom_minimum_size = Vector2(256, 0)
+script = ExtResource("1_2rm8g")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1440790548]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1766644765]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=840792251]
+layout_mode = 2
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=86876357]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=830301837]
+layout_mode = 2
+text = "Show active cell lines "
+
+[node name="ShowCellLinesCheckbox" type="CheckBox" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1717845217]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="CellFractureButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1988321660]
+layout_mode = 2
+text = "Cell Fracture"
+
+[node name="ClearPointsButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1710147258]
+layout_mode = 2
+text = "Clear Points"
