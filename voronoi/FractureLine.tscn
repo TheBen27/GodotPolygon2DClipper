@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://3sbfl3ltnaba"]
+
+[node name="FractureLine" type="Line2D" unique_id=1317630537]
+closed = true
+width = 2.0

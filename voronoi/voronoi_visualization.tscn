@@ -47,3 +47,5 @@ script = ExtResource("4_u33ff")
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+
+[node name="FractureCells" type="Node2D" parent="." unique_id=1446861884]
