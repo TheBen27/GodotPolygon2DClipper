@@ -8,7 +8,7 @@ extends MarginContainer
 
 @onready var fractureLineScene: PackedScene = preload("res://voronoi/FractureLine.tscn")
 
-@export var shrink_factor: float = 0.1
+@export var shrink_factor: float = 0.02
 
 func _ready() -> void:
 	controls.clearPointsClicked.connect(sparks.clear_points)
@@ -49,7 +49,11 @@ func fracture_cells() -> void:
 			var normal = (pi - pj).normalized()
 			PolygonOps.clip_plane(vertices, center, normal)
 		
-		var polygon = fractureLineScene.instantiate()
-		for v in vertices:
-			polygon.add_point(v.lerp(positions[i], shrink_factor))
+		var center = positions[i]
+		for j in range(len(vertices)):
+			vertices[j] = vertices[j].lerp(center, shrink_factor) - center
+		
+		var polygon: FractureLine = fractureLineScene.instantiate()
+		polygon.global_position = center
+		polygon.set_points(vertices)
 		fractureCells.add_child(polygon)

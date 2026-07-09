@@ -20,6 +20,9 @@ shader_parameter/point_positions = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0,
 shader_parameter/points = 0
 shader_parameter/indexPalette = SubResource("GradientTexture1D_cacfi")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
+distance = -720.0
+
 [node name="Voronoi" type="MarginContainer" unique_id=1164363739]
 custom_minimum_size = Vector2(1280, 720)
 anchors_preset = 15
@@ -49,3 +52,8 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="FractureCells" type="Node2D" parent="." unique_id=1446861884]
+
+[node name="WorldBorder" type="StaticBody2D" parent="." unique_id=492791053]
+
+[node name="Bottom" type="CollisionShape2D" parent="WorldBorder" unique_id=2125410542]
+shape = SubResource("WorldBoundaryShape2D_g4v7s")

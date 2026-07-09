@@ -1,5 +1,18 @@
 [gd_scene format=3 uid="uid://3sbfl3ltnaba"]
 
-[node name="FractureLine" type="Line2D" unique_id=1317630537]
+[ext_resource type="Script" uid="uid://jd4eglw3l20n" path="res://voronoi/fracture_line.gd" id="1_fuqvn"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fuqvn"]
+friction = 0.2
+bounce = 0.1
+
+[node name="FractureLine" type="RigidBody2D" unique_id=1008112085]
+physics_material_override = SubResource("PhysicsMaterial_fuqvn")
+script = ExtResource("1_fuqvn")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1332858104]
 closed = true
 width = 2.0
+antialiased = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1381357243]
