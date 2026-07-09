@@ -39,3 +39,7 @@ text = "Cell Fracture"
 [node name="ClearPointsButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1710147258]
 layout_mode = 2
 text = "Clear Points"
+
+[node name="ExplodeButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1445508521]
+layout_mode = 2
+text = "Explode!"

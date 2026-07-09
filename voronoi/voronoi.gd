@@ -9,10 +9,12 @@ extends MarginContainer
 @onready var fractureLineScene: PackedScene = preload("res://voronoi/FractureLine.tscn")
 
 @export var shrink_factor: float = 0.02
+@export var explode_impulse: float = 500.0
 
 func _ready() -> void:
 	controls.clearPointsClicked.connect(sparks.clear_points)
 	controls.cellFractureClicked.connect(fracture_cells)
+	controls.explodeClicked.connect(explode)
 
 func _process(_delta: float) -> void:
 	# background visualization
@@ -57,3 +59,9 @@ func fracture_cells() -> void:
 		polygon.global_position = center
 		polygon.set_points(vertices)
 		fractureCells.add_child(polygon)
+
+func explode():
+	var center = position + size / 2
+	for child in fractureCells.get_children():
+		var local_pos = center - child.position
+		(child as RigidBody2D).apply_impulse(local_pos.normalized() * -explode_impulse, local_pos)
